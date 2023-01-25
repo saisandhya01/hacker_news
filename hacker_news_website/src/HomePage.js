@@ -20,6 +20,7 @@ const HomePage = () => {
             params: { page: currentPage, query },
           }
         );
+        console.log(data);
         const { hits, nbPages } = data;
         setArticles(hits);
         setTotalPages(nbPages);

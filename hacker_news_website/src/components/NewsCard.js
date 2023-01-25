@@ -1,9 +1,25 @@
 const NewsCard = ({ article }) => {
-  if (!article.title) return null;
   return (
     <div className="news-card">
-      <h3>{article.title}</h3>
-      <a href={article.url}>Read more</a>
+      {article.title ? (
+        <div>
+          <h5>
+            {article.title} <a href={article.url}>({article.url})</a>
+          </h5>
+          <p>
+            {article.points} points | {article.author} | {article.num_comments}{" "}
+            comments
+          </p>{" "}
+        </div>
+      ) : (
+        <div>
+          <p>
+            {article.points} points | {article.author} | {article.num_comments}
+            comments
+          </p>
+          <p>{article.comment_text}</p>
+        </div>
+      )}
     </div>
   );
 };
